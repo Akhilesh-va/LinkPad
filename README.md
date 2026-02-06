@@ -83,4 +83,4 @@ Contributions are welcome. Please open an issue to discuss bigger changes, or se
 
 ## License
 
-MIT © [Your Name]. See [LICENSE](LICENSE) for details.
+MIT © Akhilesh Singh Maurya. See [LICENSE](LICENSE) for details.
