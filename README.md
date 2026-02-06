@@ -58,6 +58,29 @@ Open the URL shown in the terminal (e.g. `http://localhost:5173`). Type somethin
 
 ---
 
+## Deploy on GitHub Pages
+
+You can host LinkPad for free on **GitHub Pages** so anyone can use it from a link.
+
+1. **Push this repo to your GitHub account** (create a repo named `LinkPad`, or any name you like).
+
+2. **Enable GitHub Pages with Actions**
+   - In the repo: **Settings → Pages**
+   - Under **Build and deployment**, set **Source** to **GitHub Actions**.
+
+3. **Use the default branch name**  
+   The workflow is set to run on push to `main`. If your default branch is `main`, just push your code and the workflow will run. After it finishes, your site will be at:
+   ```text
+   https://<your-username>.github.io/LinkPad/
+   ```
+
+4. **If your repo name is not `LinkPad`**  
+   Edit `vite.config.js` and change `base` to match your repo (e.g. `base: '/my-repo-name/'`), then push again.
+
+No server or database—GitHub serves the static files and the app runs entirely in the browser.
+
+---
+
 ## Tech stack
 
 - **React 18** — UI
