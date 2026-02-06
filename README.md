@@ -58,31 +58,6 @@ Open the URL shown in the terminal (e.g. `http://localhost:5173`). Type somethin
 
 ---
 
-## Deploy on GitHub Pages
-
-You can host LinkPad for free on **GitHub Pages** so anyone can use it from a link.
-
-1. **Push this repo to your GitHub account** (e.g. create a repo named `LinkPad`).
-
-2. **Enable GitHub Pages**
-   - In the repo go to **Settings → Pages**.
-   - Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-   - Choose branch **`gh-pages`** and folder **`/ (root)`**, then **Save**.
-
-3. **Deploy**
-   - The workflow runs on every push to `main` and pushes the built app to the `gh-pages` branch.
-   - Push your code (or run the workflow from the **Actions** tab). After it succeeds, your site will be at:
-   ```text
-   https://<your-username>.github.io/LinkPad/
-   ```
-   (Replace `<your-username>` with your GitHub username.)
-
-4. **If your repo name is not `LinkPad`**  
-   Edit `vite.config.js` and set `base` to `'/your-repo-name/'`, then push again.
-
-No server or database—GitHub serves the static files and the app runs entirely in the browser.
-
----
 
 ## Tech stack
 
