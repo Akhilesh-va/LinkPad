@@ -40,7 +40,7 @@ The editor content is encoded (Base64 + URI encoding) and stored in the URL hash
 **Prerequisites:** Node.js 18+
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/LinkPad.git
+git clone "https://github.com/Akhilesh-va/LinkPad"
 cd LinkPad
 npm install
 npm run dev
