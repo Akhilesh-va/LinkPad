@@ -1,0 +1,230 @@
+/* LinkPad – Shareable Text Editor
+   Minimal, responsive, theme-aware layout. */
+
+:root {
+  --bg: #f8f9fa;
+  --surface: #fff;
+  --text: #1a1a1a;
+  --text-muted: #5c5c5c;
+  --border: #e0e0e0;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --danger: #dc2626;
+  --warning-bg: #fef3c7;
+  --warning-text: #92400e;
+  --shadow: rgba(0, 0, 0, 0.06);
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+[data-theme='dark'] {
+  --bg: #0f0f0f;
+  --surface: #1a1a1a;
+  --text: #f0f0f0;
+  --text-muted: #a0a0a0;
+  --border: #2a2a2a;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --danger: #ef4444;
+  --warning-bg: #422006;
+  --warning-text: #fcd34d;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* App layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+}
+
+.header__title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header__btn {
+  padding: 0.5rem 0.85rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.header__btn:hover {
+  background: var(--border);
+}
+
+.header__btn:first-of-type:not(.header__btn--icon) {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.header__btn:first-of-type:not(.header__btn--icon):hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.header__btn--secondary:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.header__btn--icon {
+  padding: 0.5rem 0.65rem;
+  font-size: 1.1rem;
+}
+
+/* Main / Editor */
+.main {
+  flex: 1;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.editor-wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 280px;
+}
+
+.editor-warning {
+  padding: 0.65rem 1rem;
+  margin-bottom: 0.75rem;
+  background: var(--warning-bg);
+  color: var(--warning-text);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.editor {
+  width: 100%;
+  flex: 1;
+  min-height: 240px;
+  padding: 1rem 1.1rem;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  resize: vertical;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+/* Code-friendly: consistent tab width and preserved whitespace */
+.editor--code {
+  tab-size: 4;
+  -moz-tab-size: 4;
+}
+
+.editor:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+[data-theme='dark'] .editor:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.editor::placeholder {
+  color: var(--text-muted);
+}
+
+.editor-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.editor-meta__url--warn {
+  color: var(--warning-text);
+}
+
+/* Footer */
+.footer {
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header__actions {
+    justify-content: flex-end;
+  }
+
+  .header__btn {
+    flex: 1;
+  }
+}
